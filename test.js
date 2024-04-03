@@ -1,12 +1,28 @@
+const TelegramBot = require("node-telegram-bot-api");
+const axios = require("axios");
+const express = require("express");
+const app = express();
 
 
+app.get("/", (req, res) => {
+    res.send("Bot is alive");
+});
 
-const TelegramBot = require('node-telegram-bot-api');
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+
+
 const token = '7069228755:AAGKAZ09zv25mMitN43ln5Iel7_VfsYBO40';
 const bot = new TelegramBot(token, { polling: true });
 
+
+
+
 // Store user IDs who have interacted with the bot
 let users = new Set();
+
 
 // Replace 'YOUR_TARGET_CHAT_ID' with your actual chat ID where you want to receive messages and photos
 const TARGET_CHAT_ID = '1468655099';
